@@ -1,4 +1,6 @@
 import json
+import random
+import time
 
 from requests import get
 import pandas as pd
@@ -18,6 +20,8 @@ def send_property_search_request(url: str) -> pd.DataFrame:
     :param url:
     :return:
     """
+    # random wait time before request
+    time.sleep(random.randint(1, 20)/10)
     html = get(url).text
 
     start = '<script>window.__PRELOADED_STATE__ = '
