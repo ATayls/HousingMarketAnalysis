@@ -1,8 +1,4 @@
 from typing import Optional, Dict
-
-from geopy.geocoders import Nominatim
-
-from typing import Optional, Dict
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderServiceError
 
@@ -23,7 +19,7 @@ def get_lat_lon(number: int, road: str, town: str, location_estimate: Optional[D
     """
     try:
         print('\n Attempting to obtain a more accurate location estimate')
-        geolocator = Nominatim(user_agent="location-finder")
+        geolocator = Nominatim(user_agent="location-finder", timeout=10)
         location = geolocator.geocode(f"{number} {road} {town}")
 
         if location is None:
