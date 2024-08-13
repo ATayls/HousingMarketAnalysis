@@ -13,6 +13,8 @@ def get_data(search_area, limit=None):
     :return: DataFrame with sold properties
     """
     data_path = os.path.abspath(r'saved_extracts')
+    os.makedirs(data_path, exist_ok=True)
+
     csv_filename = os.path.join(data_path, f'{search_area}.csv')
 
     if os.path.exists(csv_filename):
